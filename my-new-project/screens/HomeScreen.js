@@ -46,6 +46,12 @@ export default class HomeScreen extends React.Component {
             </Text>
           </View>
 
+          <View>
+            <button className="square" onClick={() => alert('click')}>
+              {this.props.value}
+            </button>
+          </View>
+
           <View style={styles.helpContainer}>
             <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
