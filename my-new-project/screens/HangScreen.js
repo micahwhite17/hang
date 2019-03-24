@@ -14,6 +14,8 @@ import { MonoText } from '../components/StyledText';
 
 import { Button } from 'react-native';
 
+import { AppRegistry, TextInput } from 'react-native';
+
 export default class HangScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -37,7 +39,12 @@ export default class HangScreen extends React.Component {
           <View style={styles.getStartedContainer}>
             {this._maybeRenderDevelopmentModeWarning()}
 
-            <Text style={styles.getStartedText}>This is our app.</Text>
+            <Text style={styles.getStartedText}>Where are you?</Text>
+
+            <TextInput
+            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+            onChangeText={(text) => this.setState({text})}>
+            Location</TextInput>
 
             <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
               <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
