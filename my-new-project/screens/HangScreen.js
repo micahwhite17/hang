@@ -72,8 +72,9 @@ export default class HangScreen extends React.Component {
 
               <Button
                 title="Check In"
-                onPress={ checkedIn=true }
+                onPress={(checkedIn) => {true}}
               />
+
             </View>
 
             {/*}<View style={styles.helpContainer}>
