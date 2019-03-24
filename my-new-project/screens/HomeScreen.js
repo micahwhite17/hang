@@ -50,8 +50,8 @@ export default class HomeScreen extends React.Component {
 
           <View>
             <Button
-            onPress={""}
-            title="Solid Button"
+            onPress={''}
+            title="Check In"
             />
           </View>
 
