@@ -79,9 +79,11 @@ export default class HangScreen extends React.Component {
               title={this.state.buttonTitle}
               onPress={() => (this.state.buttonTitle === 'Check In') ? (this.setState({
                   buttonTitle: 'Check Out',
+                  text1: 'Find some friends and Hang!'
                 })
                 ) : (this.setState({
                     buttonTitle: 'Check In',
+                    text1: 'Show your friends where you are!'
                   })
                 )
               }
