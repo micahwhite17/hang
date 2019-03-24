@@ -50,6 +50,14 @@ export default class FriendsScreen extends React.Component {
               key={x}
               style={styles.friend}>
               <View style={{ flexDirection: 'row' }}>
+              <View style={styles.optionIconContainer}>
+                <Image
+                  source={require('../assets/images/defaultProfile.jpg')}
+                  resizeMode="cover"
+                  fadeDuration={0}
+                  style={{ width: 35, height: 35, marginTop: 1 }}
+                />
+              </View>
                 <View style={styles.friendContainer}>
                   <Text style={styles.friendText}>
                     {x}
@@ -97,7 +105,7 @@ const styles = StyleSheet.create({
   },
   friendText: {
     fontSize: 20,
-    marginLeft: 70,
+    marginLeft: 25,
     marginTop: 2,
     marginBottom: 2,
   },
