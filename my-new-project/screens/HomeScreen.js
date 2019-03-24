@@ -12,6 +12,8 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
+import { Button } from 'react-native';
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -42,8 +44,15 @@ export default class HomeScreen extends React.Component {
             </View>
 
             <Text style={styles.getStartedText}>
-              Hello World. I am the captain now. Hi Nick :)
+              Hello World. I am the captain now.
             </Text>
+          </View>
+
+          <View>
+            <Button
+            onPress={""}
+            title="Solid Button"
+            />
           </View>
 
           <View style={styles.helpContainer}>
