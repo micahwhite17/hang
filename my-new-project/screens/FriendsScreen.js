@@ -6,7 +6,7 @@ import Touchable from 'react-native-platform-touchable';
 var database = [
   {
     'name': 'Ferg',
-    'friends': ['Micah', 'Keaton', 'Josh']
+    'friends': ['Micah', 'Keaton', 'Josh', 'Nick']
   },
   {
     'name': 'Fresh',
