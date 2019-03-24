@@ -81,15 +81,26 @@ export default class HangScreen extends React.Component {
 
             <Button
               title={this.state.buttonTitle}
-              onPress={() => this.setState({
-                buttonTitle: 'Check Out',
-                borders: 'transparent',
-                textColor: 'transparent',
-                text2: '',
-                text3: '',
-                text4: '',
-                text5: ''
-              })}
+              onPress={() => (this.state.buttonTitle === 'Check In') ? (this.setState({
+                  buttonTitle: 'Check Out',
+                  borders: 'transparent',
+                  textColor: 'transparent',
+                  text2: '',
+                  text3: '',
+                  text4: '',
+                  text5: ''
+                })
+                ) : (this.setState({
+                    buttonTitle: 'Check In',
+                    borders: 'lightgray',
+                    textColor: 'black',
+                    text2: '',
+                    text3: '',
+                    text4: 'What\'s your name?',
+                    text5: 'What\'s your location?'
+                  })
+                )
+              }
             />
 
           </View>
