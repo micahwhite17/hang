@@ -24,14 +24,9 @@ export default class HangScreen extends React.Component {
   };
 
   state = {
-    switchValue: false,
-    text: ''
-  };
-  toggleSwitch = value => {
-    //onValueChange of the switch this function will be called
-    this.setState({ switchValue: value });
-    //state changes according to switch
-    //which will result in re-render the text
+    text1: 'Show your friends where you are!',
+    text2: '',
+    text3: ''
   };
 
   render() {
@@ -58,21 +53,31 @@ export default class HangScreen extends React.Component {
 
               <Text
                 style={{ fontSize: 24, textAlign: 'center' }}
-              >{"\n\n"}Show your friends where you are!{"\n"}</Text>
+              >{"\n\n"}{this.state.text1}{"\n"}</Text>
+
+              <TextInput
+                style={{ fontSize: 24, borderColor: 'lightgray', borderWidth: 2 }}
+                textAlign={'center'}
+                multiline={true}
+                placeholder="What's your name?"
+                onChangeText={(text) => this.setState({text3: text})}
+              />
+
+              <Text>{"\n"}</Text>
 
               <TextInput
                 style={{ fontSize: 24, borderColor: 'lightgray', borderWidth: 2 }}
                 textAlign={'center'}
                 multiline={true}
                 placeholder="What's your location?"
-                onChangeText={(text) => this.setState({text})}
+                onChangeText={(text) => this.setState({text2: text})}
               />
 
               <Text style={{ fontSize: 24 }}>{"\n\n"}</Text>
 
               <Button
                 title="Check In"
-                onPress={(checkedIn) => {true}}
+                onPress={() => {checkedIn=true; console.log(this.state.text2);}}
               />
 
             </View>
@@ -91,6 +96,21 @@ export default class HangScreen extends React.Component {
               <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
             </View>
           </View>*/}
+        </View>
+      );
+    }
+
+    if (checkedIn == true) {
+      return(
+        <View style={styles.container}>
+          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+            <View style={styles.welcomeContainer}>
+              <Button
+                title="Check In"
+                onPress={() => {checkedIn=false; console.log(checkedIn);}}
+              />
+            </View>
+          </ScrollView>
         </View>
       );
     }
@@ -115,12 +135,6 @@ export default class HangScreen extends React.Component {
         <Text style={styles.developmentModeText}>
           You are not in development mode, your app will run at full speed.
         </Text>
-      );
-    }
-
-    if (checkedIn == true) {
-      return(
-        <View><Text>Please Work!</Text></View>
       );
     }
   }
