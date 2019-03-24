@@ -24,19 +24,29 @@ export default class FriendsScreen extends React.Component {
         // <ExpoLinksView />
         }
 
+        <Touchable
+          style={styles.location}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={styles.locationContainer}>
+              <Text style={styles.locationText}>
+                {database.location}
+              </Text>
+            </View>
+          </View>
+        </Touchable>
         
+        {database.friends.map(x => (
           <Touchable
-            style={styles.location}
-            background={Touchable.Ripple('#ccc', false)}>
+            style={styles.friend}>
             <View style={{ flexDirection: 'row' }}>
-              <View style={styles.locationContainer}>
-                <Text style={styles.locationText}>
-                  {database.location}
+              <View style={styles.friendContainer}>
+                <Text style={styles.friendText}>
+                  {x}
                 </Text>
               </View>
             </View>
           </Touchable>
-        }
+        ))}
 
       </ScrollView>
     );
@@ -50,11 +60,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   location: {
-    backgroundColor: '#fdfdfd',
+    backgroundColor: '#FFFFFF',
     paddingHorizontal: 5,
     paddingVertical: 6,
     borderBottomWidth: 2,
-    borderBottomColor: '#EDEDED',
+    borderBottomColor: '#8C8C8C',
   },
   locationText: {
     fontSize: 35,
@@ -64,5 +74,21 @@ const styles = StyleSheet.create({
   },
   locationContainer: {
     marginRight: 5
+  },
+  friend: {
+    backgroundColor: '#FFFFFF',
+    paddingHorizontal: 5,
+    paddingVertical: 2,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#8C8C8C',
+  },
+  friendText: {
+    fontSize: 20,
+    marginLeft: 70,
+    marginTop: 2,
+    marginBottom: 2,
+  },
+  friendContainer: {
+    marginRight: 10
   }
 });
