@@ -16,8 +16,6 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
-let checkedIn=false;
-
 export default class HangScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -26,94 +24,92 @@ export default class HangScreen extends React.Component {
   state = {
     text1: 'Show your friends where you are!',
     text2: '',
-    text3: ''
+    text3: '',
+    text4: 'What\'s your name?',
+    text5: 'What\'s your location?',
+    borders: 'lightgray',
+    textColor: 'black',
+    buttonTitle: 'Check In',
   };
 
   render() {
-    if (checkedIn == false) {
-      return (
-        <View style={styles.container}>
-          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-            <View style={styles.welcomeContainer}>
-              <Image
-                source={
-                  __DEV__
-                    ? require('../assets/images/robot-dev.png')
-                    : require('../assets/images/robot-prod.png')
-                }
-                style={styles.welcomeImage}
-              />
-            </View>
+    return (
+      <View style={styles.container}>
+        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <View style={styles.welcomeContainer}>
+            <Image
+              source={
+                __DEV__
+                  ? require('../assets/images/robot-dev.png')
+                  : require('../assets/images/robot-prod.png')
+              }
+              style={styles.welcomeImage}
+            />
+          </View>
 
-            <View style={styles.getStartedContainer}>
-              {/*}{this._maybeRenderDevelopmentModeWarning()}*/}
-              {/*}<View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-                <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-              </View>*/}
-
-              <Text
-                style={{ fontSize: 24, textAlign: 'center' }}
-              >{"\n\n"}{this.state.text1}{"\n"}</Text>
-
-              <TextInput
-                style={{ fontSize: 24, borderColor: 'lightgray', borderWidth: 2 }}
-                textAlign={'center'}
-                multiline={true}
-                placeholder="What's your name?"
-                onChangeText={(text) => this.setState({text3: text})}
-              />
-
-              <Text>{"\n"}</Text>
-
-              <TextInput
-                style={{ fontSize: 24, borderColor: 'lightgray', borderWidth: 2 }}
-                textAlign={'center'}
-                multiline={true}
-                placeholder="What's your location?"
-                onChangeText={(text) => this.setState({text2: text})}
-              />
-
-              <Text style={{ fontSize: 24 }}>{"\n\n"}</Text>
-
-              <Button
-                title="Check In"
-                onPress={() => {checkedIn=true; console.log(this.state.text2);}}
-              />
-
-            </View>
-
-            {/*}<View style={styles.helpContainer}>
-              <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-                <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-              </TouchableOpacity>
+          <View style={styles.getStartedContainer}>
+            {/*}{this._maybeRenderDevelopmentModeWarning()}*/}
+            {/*}<View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
             </View>*/}
-          </ScrollView>
 
-          {/*}<View style={styles.tabBarInfoContainer}>
-            <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
+            <Text
+              style={{ fontSize: 24, textAlign: 'center', color: this.state.textColor }}
+            >{"\n\n"}{this.state.text1}{"\n"}</Text>
 
-            <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-              <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-            </View>
+            <TextInput
+              style={{ fontSize: 24, color: this.state.textColor, borderColor: this.state.borders, borderWidth: 2 }}
+              textAlign={'center'}
+              multiline={true}
+              placeholder={this.state.text4}
+              value={this.state.text2}
+              onChangeText={(text) => this.setState({text2: text})}
+            />
+
+            <Text>{"\n"}</Text>
+
+            <TextInput
+              style={{ fontSize: 24, color: this.state.textColor, borderColor: this.state.borders, borderWidth: 2 }}
+              textAlign={'center'}
+              multiline={true}
+              placeholder={this.state.text5}
+              value={this.state.text3}
+              onChangeText={(text) => this.setState({text3: text})}
+            />
+
+            <Text style={{ fontSize: 24 }}>{"\n\n"}</Text>
+
+            <Button
+              title={this.state.buttonTitle}
+              onPress={() => this.setState({
+                buttonTitle: 'Check Out',
+                borders: 'transparent',
+                textColor: 'transparent',
+                text2: '',
+                text3: '',
+                text4: '',
+                text5: ''
+              })}
+            />
+
+          </View>
+
+          {/*}<View style={styles.helpContainer}>
+            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
+              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
+            </TouchableOpacity>
           </View>*/}
-        </View>
-      );
-    }
+        </ScrollView>
 
-    if (checkedIn == true) {
-      return(
-        <View style={styles.container}>
-          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-            <View style={styles.welcomeContainer}>
-              <Button
-                title="Check In"
-                onPress={() => {checkedIn=false; console.log(checkedIn);}}
-              />
-            </View>
-          </ScrollView>
-        </View>
-      );
-    }
+        {/*}<View style={styles.tabBarInfoContainer}>
+          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
+
+          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
+            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
+          </View>
+        </View>*/}
+      </View>
+    );
   }
 
   _maybeRenderDevelopmentModeWarning() {
