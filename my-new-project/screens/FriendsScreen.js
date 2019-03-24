@@ -3,13 +3,22 @@ import { ScrollView, StyleSheet, View, Text, Image } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Touchable from 'react-native-platform-touchable';
 
+var database = [
+  {
+    'name': 'Ferg',
+    'friends': ['Micah', 'Keaton', 'Josh']
+  },
+  {
+    'name': 'Fresh',
+    'friends': ['Josh', 'Xiques', 'Everett', 'Zach', 'Nebuchadnezzar', 'The Alpha Male Formerly Known As TJ Glass', 'Bill']
+  },
+  {
+    'name': 'Lakeside',
+    'friends': ['Ethan', 'Terry']
+  }
+];
 
-var database = {
-  'numFriends': 3,
-  'numLocations': 1,
-  'location': 'Ferg',
-  'friends': ['Micah', 'Keaton', 'Josh'],
-};
+// var i = 0;
 
 export default class FriendsScreen extends React.Component {
   static navigationOptions = {
@@ -23,31 +32,35 @@ export default class FriendsScreen extends React.Component {
            * content, we just wanted to provide you with some helpful links */
         // <ExpoLinksView />
         }
-
-        <Touchable
-          style={styles.location}>
-          <View style={{ flexDirection: 'row' }}>
-            <View style={styles.locationContainer}>
-              <Text style={styles.locationText}>
-                {database.location}: {database.friends.length}
-              </Text>
-            </View>
-          </View>
-        </Touchable>
-        
-        {database.friends.map(x => (
+        {database.map(locations => (
+          <View key={locations.name}>
           <Touchable
-            style={styles.friend}>
+            style={styles.location}>
             <View style={{ flexDirection: 'row' }}>
-              <View style={styles.friendContainer}>
-                <Text style={styles.friendText}>
-                  {x}
+              <View style={styles.locationContainer}>
+                <Text style={styles.locationText}>
+                  {locations.name}: {locations.friends.length}
                 </Text>
               </View>
             </View>
           </Touchable>
-        ))}
 
+          {locations.friends.map((x, i) => (
+            <Touchable
+              key={x}
+              style={styles.friend}>
+              <View style={{ flexDirection: 'row' }}>
+                <View style={styles.friendContainer}>
+                  <Text style={styles.friendText}>
+                    {x}
+                  </Text>
+                </View>
+              </View>
+            </Touchable>
+          ))}
+          </View>
+        ))}
+        
       </ScrollView>
     );
   }
