@@ -23,8 +23,8 @@ export default class HangScreen extends React.Component {
 
   state = {
     text1: 'Show your friends where you are!',
-    text2: '',
-    text3: '',
+    text2: '', //name
+    text3: '', //location
     borders: 'lightgray',
     textColor: 'black',
     buttonTitle: 'Check In',
@@ -231,3 +231,8 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
 });
+
+exports.handler = function(event, context, callback){
+  render();
+  callback(null, 'Success!');
+}

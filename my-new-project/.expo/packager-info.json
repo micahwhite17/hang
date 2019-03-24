@@ -1,1 +1,9 @@
-{}
+{
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://hr-t5h.mcwhite9.my-new-project.exp.direct",
+  "packagerNgrokUrl": "https://packager.hr-t5h.mcwhite9.my-new-project.exp.direct",
+  "ngrokPid": 16464,
+  "devToolsPort": 19002,
+  "packagerPort": null,
+  "packagerPid": null
+}
