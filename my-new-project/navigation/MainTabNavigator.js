@@ -3,12 +3,12 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import HangScreen from '../screens/HangScreen';
+import FriendsScreen from '../screens/FriendsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const CheckInStack = createStackNavigator({
-  Home: HomeScreen,
+  Hang: HangScreen,
 });
 
 CheckInStack.navigationOptions = {
@@ -26,7 +26,7 @@ CheckInStack.navigationOptions = {
 };
 
 const FriendStack = createStackNavigator({
-  Links: LinksScreen,
+  Friends: FriendsScreen,
 });
 
 FriendStack.navigationOptions = {

@@ -14,7 +14,7 @@ import { MonoText } from '../components/StyledText';
 
 import { Button } from 'react-native';
 
-export default class HomeScreen extends React.Component {
+export default class HangScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
