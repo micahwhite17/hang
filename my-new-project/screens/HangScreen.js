@@ -25,8 +25,6 @@ export default class HangScreen extends React.Component {
     text1: 'Show your friends where you are!',
     text2: '',
     text3: '',
-    text4: 'What\'s your name?',
-    text5: 'What\'s your location?',
     borders: 'lightgray',
     textColor: 'black',
     buttonTitle: 'Check In',
@@ -61,8 +59,7 @@ export default class HangScreen extends React.Component {
               style={{ fontSize: 24, color: this.state.textColor, borderColor: this.state.borders, borderWidth: 2 }}
               textAlign={'center'}
               multiline={true}
-              placeholder={this.state.text4}
-              value={this.state.text2}
+              placeholder= {'What\'s your name?'}
               onChangeText={(text) => this.setState({text2: text})}
             />
 
@@ -72,8 +69,7 @@ export default class HangScreen extends React.Component {
               style={{ fontSize: 24, color: this.state.textColor, borderColor: this.state.borders, borderWidth: 2 }}
               textAlign={'center'}
               multiline={true}
-              placeholder={this.state.text5}
-              value={this.state.text3}
+              placeholder= {'What\'s your location?'}
               onChangeText={(text) => this.setState({text3: text})}
             />
 
@@ -83,21 +79,9 @@ export default class HangScreen extends React.Component {
               title={this.state.buttonTitle}
               onPress={() => (this.state.buttonTitle === 'Check In') ? (this.setState({
                   buttonTitle: 'Check Out',
-                  borders: 'transparent',
-                  textColor: 'transparent',
-                  text2: '',
-                  text3: '',
-                  text4: '',
-                  text5: ''
                 })
                 ) : (this.setState({
                     buttonTitle: 'Check In',
-                    borders: 'lightgray',
-                    textColor: 'black',
-                    text2: '',
-                    text3: '',
-                    text4: 'What\'s your name?',
-                    text5: 'What\'s your location?'
                   })
                 )
               }
