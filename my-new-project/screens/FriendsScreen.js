@@ -29,7 +29,7 @@ export default class FriendsScreen extends React.Component {
           <View style={{ flexDirection: 'row' }}>
             <View style={styles.locationContainer}>
               <Text style={styles.locationText}>
-                {database.location}
+                {database.location}: {database.friends.length}
               </Text>
             </View>
           </View>
